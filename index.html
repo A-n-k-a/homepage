@@ -138,8 +138,7 @@
                         src="/static/img/logokuang.png" alt="头像框" title="Anka的主页"></div>
                 <div class="welcome">Hello, I'm <span class="gradientText">Anka</span></div>
 
-                <div class="description"> <span class="purpleText">『</span><div id="hitokoto_p">:D 一言获取中...</div><span class="purpleText">』</span>
-                </div>
+                <div id="hitokoto_div">:D 一言获取中...</div>
 <!--                 
                 <div class="description"> ——
 
@@ -400,7 +399,7 @@
 
             // 在页面上展示 API 返回的值
             // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}「${data.from}」</p>`;
-            document.getElementById("hitokoto_p").innerHTML = `<p>${data.hitokoto}</p>`;
+            document.getElementById("hitokoto_div").innerHTML = `<p><div class="description"><span class="purpleText">『</span>${data.hitokoto}<span class="purpleText">』</span></div></p>`;
             document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"> ${data.from_who} </span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
             document.querySelector('#hitokoto_redirect').href = `https://hitokoto.cn/?uuid=${data.uuid}`
             // document.getElementById("hitokoto_redirect").href = `https://hitokoto.cn/?uuid=${data.uuid}`
