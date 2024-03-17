@@ -27,10 +27,8 @@
     transition: background-color 0.2s ease;
 }
 
-a:hover {
-    cursor: url('static/other/millennium_link.cur'), auto;
-}
-a:link,
+a:hover,
+a:link {cursor: url('static/other/millennium_link.cur'), auto;}
 a:visited,
 a:active,
 a:focus {
