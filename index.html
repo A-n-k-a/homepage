@@ -138,7 +138,7 @@
                         src="/static/img/logokuang.png" alt="头像框" title="Anka的主页"></div>
                 <div class="welcome">Hello, I'm <span class="gradientText">Anka</span></div>
 
-                <div class="description"> <span class="purpleText">『</span> <p id="hitokoto_p"></p> <span class="purpleText">』</span>
+                <div class="description"> <span class="purpleText">『</span> <div id="hitokoto_p"></div> <span class="purpleText">』</span>
                 </div>
 <!--                 
                 <div class="description"> ——
@@ -148,7 +148,7 @@
                     <span class="purpleText textBackground"> <p id="from_p"></p> </span> 」
                 </div>
                  -->
-                <p id="fromWho_from"></p>
+                <div id="fromWho_from"></div>
                 <a href="https://hitokoto.cn" id="hitokoto_redirect">一言来自：hitokoto.cn</a>
                 <div class="iconContainer"> <!-- 图标容器开始 -->
 
@@ -400,31 +400,17 @@
 
             // 在页面上展示 API 返回的值
             hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}「${data.from}」</p>`;
-            document.getElementById("hitokoto_p").innerHTML = `<p>${data.hitokoto}`;
-            document.getElementById("fromWho_from").innerHTML = 
-                `
-                    <div class="description"> ——
-                        <span class="purpleText textBackground"> ${data.from_who} </span>「<span class="purpleText textBackground"> ${data.from} </span> 」
-                    </div>
-                    `;
-            document.getElementById("hitokoto_redirect").href = `https://hitokoto.cn/?uuid=${data.uuid}`
+            document.getElementById("hitokoto_p").innerHTML = `<p>${data.hitokoto}</p>`;
+            document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"> ${data.from_who} </span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
+            document.querySelector('#hitokoto_redirect').href = `https://hitokoto.cn/?uuid=${data.uuid}`
+            // document.getElementById("hitokoto_redirect").href = `https://hitokoto.cn/?uuid=${data.uuid}`
             if (data.from_who == null){
                 hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——「${data.from}」</p>`;
-                document.getElementById("fromWho_from").innerHTML = 
-                    `
-                        <div class="description"> ——
-                            <span class="purpleText textBackground"></span>「<span class="purpleText textBackground"> ${data.from} </span> 」
-                        </div>
-                        `;
+                document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"></span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
             }
             if (data.from == null){
                 hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}</p>`;
-                document.getElementById("fromWho_from").innerHTML = 
-                    `
-                        <div class="description"> ——
-                            <span class="purpleText textBackground"> ${data.from_who} </span>
-                        </div>
-                        `;
+                document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"> ${data.from_who} </span></p>`;
             }
             if (data.from_who == null && data.from == null){
                 hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』</p>`;
