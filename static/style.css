@@ -39,6 +39,8 @@ a:focus {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+a:-webkit-any-link {cursor: url('static/other/millennium_link.cur'), auto;}
+
 img a {
     -webkit-touch-callout: none;
     /* iOS Safari */
