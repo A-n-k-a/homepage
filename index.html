@@ -405,7 +405,7 @@
             // document.getElementById("hitokoto_redirect").href = `https://hitokoto.cn/?uuid=${data.uuid}`
             if (data.from_who == null){
                 // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——「${data.from}」</p>`;
-                document.getElementById("fromWho_from").innerHTML = `<p>——<span onclick="window.location.href='https://www.baidu.com/s?word=${data.from}';" class="purpleText textBackground"></span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
+                document.getElementById("fromWho_from").innerHTML = `<p>——「<span onclick="window.location.href='https://www.baidu.com/s?word=${data.from}';" class="purpleText textBackground"> ${data.from} </span> 」</p>`;
             }
             if (data.from == null){
                 // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}</p>`;
