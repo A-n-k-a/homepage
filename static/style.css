@@ -610,6 +610,7 @@ footer {
     color: var(--footer-text-color);
     font-size: 13px;
     bottom: 0;
+    cursor: url('/static/other/millennium_alternative.cur'), auto;
 }
 
 @media (min-width: 800px) {
