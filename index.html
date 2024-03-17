@@ -138,14 +138,15 @@
                         src="/static/img/logokuang.png" alt="头像框" title="Anka的主页"></div>
                 <div class="welcome">Hello, I'm <span class="gradientText">Anka</span></div>
 
-                <div class="description"> <span class="purpleText"> 不知大海之宽阔</span> 却知晓天空之蓝
+                <div class="description"> <span class="purpleText">『</span> ${hitokoto} <span class="purpleText">』</span>
                 </div>
-                <div class="description"> ( •̀ ω •́ )✧ 
+                <div class="description"> ——
 
-                    <span class="purpleText textBackground"> ( •̀ ω •́ )✧ </span>
-                    ( •̀ ω •́ )✧
-                    <span class="purpleText textBackground"> ( •̀ ω •́ )✧ </span> ( •̀ ω •́ )✧ 
+                    <span class="purpleText textBackground"> ${hito_fromWho} </span>
+                    「
+                    <span class="purpleText textBackground"> ${hito_from} </span> 」
                 </div>
+                <a href="https://hitokoto.cn/?uuid=${hito_uuid}" id="hitokoto_text">一言来自：hitokoto.cn</a>
                 <div class="iconContainer"> <!-- 图标容器开始 -->
 
                     <!-- 图标我全部是iconfont找的，可以自行更换 -->
@@ -374,5 +375,39 @@
 
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({ id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l" })</script>
+<script>
+    // 请求 Hitokoto API
+    fetch('https://v1.hitokoto.cn/')
+        .then(response => response.json())
+        .then(data => {
+            const hitokotoDiv = document.getElementById('hitokoto');
+            // 保存每个 JSON 元素为变量
+            const hito_id = data.id;
+            const hito_uuid = data.uuid;
+            const hitokoto = data.hitokoto;
+            const hito_type = data.type;
+            const hito_from = data.from;
+            const hito_fromWho = data.from_who;
+            const hito_creator = data.creator;
+            const hito_creatorUid = data.creator_uid;
+            const hito_reviewer = data.reviewer;
+            const hito_commitFrom = data.commit_from;
+            const hito_createdAt = new Date(data.created_at * 1000).toLocaleString();
+            const hito_length = data.length;
+
+            // 在页面上展示 API 返回的值
+            hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}「${data.from}」</p>`;
+            if (data.from_who == null){
+                hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——「${data.from}」</p>`;
+            }
+            if (data.from == null){
+                hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}</p>`;
+            }
+            if (data.from_who == null && data.from == null){
+                hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』</p>`;
+            }
+        })
+        .catch(error => console.error('Error fetching hitokoto:', error));
+</script>
 
 </html>
