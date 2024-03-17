@@ -103,7 +103,7 @@ body {
     width: 100%;
     position: relative;
     font-family: "b", "HarmonyOS_Regular", "a", sans-serif;
-    cursor: url('/static/other/sb.cur'), auto;
+    cursor: url('/static/other/millennium_base.cur'), auto;
     background: var(--main-bg-color);
     background-repeat: no-repeat;
     background-size: cover;
