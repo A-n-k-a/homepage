@@ -400,16 +400,16 @@
             // 在页面上展示 API 返回的值
             // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}「${data.from}」</p>`;
             document.getElementById("hitokoto_div").innerHTML = `<p><div class="description"><span class="purpleText">『</span>${data.hitokoto}<span class="purpleText">』</span></div></p>`;
-            document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"> ${data.from_who} </span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
+            document.getElementById("fromWho_from").innerHTML = `<p>——<span onclick="window.location.href='www.baidu.com/s?word=${data.from_who}';" class="purpleText textBackground"> ${data.from_who} </span>「<span onclick="window.location.href='www.baidu.com/s?word=${data.from}';" class="purpleText textBackground"> ${data.from} </span> 」</p>`;
             document.querySelector('#hitokoto_redirect').href = `https://hitokoto.cn/?uuid=${data.uuid}`
             // document.getElementById("hitokoto_redirect").href = `https://hitokoto.cn/?uuid=${data.uuid}`
             if (data.from_who == null){
                 // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——「${data.from}」</p>`;
-                document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"></span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
+                document.getElementById("fromWho_from").innerHTML = `<p>——<span onclick="window.location.href='www.baidu.com/s?word=${data.from}';" class="purpleText textBackground"></span>「<span class="purpleText textBackground"> ${data.from} </span> 」</p>`;
             }
             if (data.from == null){
                 // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』<br>——${data.from_who}</p>`;
-                document.getElementById("fromWho_from").innerHTML = `<p>——<span class="purpleText textBackground"> ${data.from_who} </span></p>`;
+                document.getElementById("fromWho_from").innerHTML = `<p>——<span onclick="window.location.href='www.baidu.com/s?word=${data.from_who}';" class="purpleText textBackground"> ${data.from_who} </span></p>`;
             }
             if (data.from_who == null && data.from == null){
                 // hitokotoDiv.innerHTML = `<p>『${data.hitokoto}』</p>`;
