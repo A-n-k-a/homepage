@@ -96,12 +96,12 @@
                         <div>2024-03-13</div>
                         <div>ICP备案审核通过</div>
                     </li>
-<!--                     <li>
-                        <div class="focus"></div>
-                        <div>2024-1-27</div>
-                        <div>敬请期待</div>
-                    </li>
                     <li>
+                        <div class="focus"></div>
+                        <div>2025-3-25</div>
+                        <div>开设新站</div>
+                    </li>
+<!--                     <li>
                         <div class="focus"></div>
                         <div>2023-08-3</div>
                         <div>ICP备案成功</div>
@@ -243,7 +243,7 @@
                 <div class="projectList">
                     <!-- 项目列表开始 -->
                     <!---->
-                    <a class="projectItem a" target="_blank" href="https://www.immortal-bird.asia">
+                    <a class="projectItem a" target="_blank" href="https://www.anka1.top">
                         <!-- 项目项开始 -->
                         <div class="projectItemLeft">
                             <h1>测试文章1</h1>
@@ -255,15 +255,15 @@
                         <!-- 项目项结束 -->
                     </a>
                     <!---->
-<!--                     <a class="projectItem a" target="_blank" href="https://i.zyyo.net"> -->
+                    <a class="projectItem a" target="_blank" href="https://www.anka1.top">
                         <!-- 项目项开始 -->
-<!--                         <div class="projectItemLeft">
-                            <h1>云盘</h1>
-                            <p>存储收集文件</p>
+                        <div class="projectItemLeft">
+                            <h1>新版主页</h1>
+                            <p>视觉及功能焕新升级，欢迎来访～</p>
                         </div>
                         <div class="projectItemRight">
-                            <img src="/static/img/i2.png" alt="">
-                        </div> -->
+                            <img src="/static/img/主页房子家.svg" alt="">
+                        </div>
                         <!-- 项目项结束 -->
 <!--                     </a> -->
                     <!---->
@@ -358,7 +358,7 @@
     </div> <!-- main结束 -->
     <!--弹窗-->
     <footer>
-        Anka © 2024 |
+        <a href=${originurl}>Anka</a> © 2024 - ${currentyear} |
         <a href="https://beian.miit.gov.cn/">蜀ICP备2024059718号</a>
     </footer>
     <div class="tc">
@@ -377,6 +377,12 @@
 
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({ id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l" })</script>
+<script>
+    var originurl = window.location.origin;   // 返回基础 URL
+    // 获取当前年份
+    var datedate = new Date();
+    var currentyear = datedate.getFullYear();
+</script>
 <script>
     // 请求 Hitokoto API
     fetch('https://v1.hitokoto.cn/')
